@@ -1,0 +1,409 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap'); /* Google font link for Poppins */
+
+:root {
+    --primary-color: #007AF3;
+}
+
+body {
+    background: #F2F2F2;
+    margin: 0;
+    font-family: 'Poppins';
+}
+
+.navbar {
+    background: white;
+    padding: 1em; /* space on the inside of the element */
+
+    .logo {  
+        text-decoration: none;
+        font-weight: bold;
+        color: black;
+        font-size: 1.2em; /* The size of "Remember That" */
+
+        span {
+            color: var(--primary-color); /* From the "root" */
+        }
+    }
+
+    nav {
+        display: none;
+    }
+    
+    .container {
+        display: flex; /* using Flexbox */
+        place-content: space-between; /* Separates the Logo from the mobile menu */
+    }
+
+    .mobile-menu {
+        cursor: pointer;
+    }
+}
+
+a {
+    color: #444444; /* Effects the color of all links */
+}
+
+ul { /* gets rid of all default properties in unordered list */
+   list-style-type: none; 
+   margin: 0;
+   padding: 0;
+}
+
+section {
+    padding: 5em 2em; /* 5 on top, 2 on the right & left */
+}
+
+.hero {
+    text-align: center; /* For the hero section */
+}
+
+.left-col {
+
+    .subhead {
+        text-transform: uppercase;
+        font-weight: bold;
+        color: gray;
+        letter-spacing: .3em;
+    }
+
+    h1 { /* This is for the Title (h1) */
+        font-size: 2.5em;
+        line-height: 1.3em;
+        margin-top: .2em;
+    }
+
+    .primary-cta { /* To modify the "Try for Free" button */
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none; /* Gets rid of the underline */
+        padding: .6em 1.3em;
+        font-size: 1.4em;
+        border-radius: 5em; /* Button rounded corner radius */
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    .watch-video-cta {
+        display: block; /* Moves the video icon down */
+        margin-top: 1em;
+
+        img {
+            margin-right: .5em;
+        }
+    }
+}
+
+.hero-img {
+    width: 70%;
+    margin-top: 3em;
+}
+
+section.features-section { /* "section" tells you where it is coming from */
+    background: #20272E;
+    color: white;
+}
+
+ul.features-list { /* for the terms with green check marks */
+    margin: 0;
+    padding-left: .1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+
+    li {  /* text list with check mark */
+        font-size: 1.1em;
+        margin-bottom: 1em;
+        margin-left: 2em;
+        position: relative; /* Without this, the check marks will not show up */
+
+        &:before {  /* The "&" is from SASS-creates check marks */
+            content: '';
+            left: -2em;  /* Without this the checkmarks touch the text */
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('../images/bullet.svg');
+            background-size: contain;
+            margin-right: .5em;
+        }
+    }
+}
+
+.features-section img {
+    display: none;  /* So the holding-phone image will not display in mobile */
+}
+
+.testimonials-section {
+    background: var(--primary-color);
+    color: white;
+
+    li {
+        background: #006BD6;
+        text-align: center;
+        padding: 2em 1em;  /* 2 on the top & bottom, 1 on both sides */
+        width: 80%;
+        margin: 0 auto 5em auto;  /* 0=top, auto=right, 5em=bottom, auto=left,   */
+        border-radius: 1em;
+
+        img {  /* Makes the images the same size in testimonials */
+            width: 5em;
+            height: 5em;
+            border: 5px solid #006BD6;
+            border-radius: 50%;
+            margin-top: -4.5em;
+        }
+    }
+
+}
+
+h2 {
+    font-size: 2em;
+}
+
+label {  /* Stacks the elements for mobile */
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: .5em;
+}
+
+input, textarea {
+    width: 100%;
+    padding: .8em;
+    margin-bottom: 1em;
+    border-radius: .3em;
+    border: 1px solid gray;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {  /* This is the "Send message" button */
+    background-color: var(--primary-color);  /* this is a blue color */
+    color: white;  /* turns button text from black to white */
+    font-weight: bold;
+    font-size: 1.3em;  /* the text size for the button */
+    border: none;
+    margin-bottom: 5em;  /* space between button and map */
+    border-radius: 5em;  /* Puts rounded corners on the button */
+    display: inline-block;
+    padding: .8em 2em;
+    width: unset;  /* makes the "button" less wide */
+    cursor: pointer;
+}
+
+iframe {  /* the embeded map */
+    width: 100%;
+    height: 300px;
+}
+
+ /* Without this code below, the mobile menu will not work. */
+nav.menu-btn {
+    display: block;
+}
+
+nav {
+    position: fixed;
+    z-index: 999;  /* makes the menu sit on top of everything */
+    width: 66%;
+    right: 0;
+    top: 0;
+    background: #20272E;  /* popup menu's background color */
+    height: 100vh;
+    padding: 1em;
+
+    ul.primary-nav {
+        margin-top: 5em;
+    }
+
+    li {
+        
+        a {  /* For the mobile menu (popup) */
+            color: white;  /* the hyperlink text color */
+            text-decoration: none;
+            display: block;  /* need this if you want to add padding, etc. */
+            padding: .5em;
+            font-size: 1.3em;
+            text-align: right;  /* moves the links to the rightside of the page */
+
+            &:hover {
+                font-weight: bold;  /* When you hover over the menu links */
+            }
+        }
+    }
+}
+
+.mobile-menu-exit {
+    float: right;
+    margin: .5em;
+    cursor: pointer;
+}
+
+/* Applies to anything 768px or larger */
+@media only screen and (min-width: 768px) {
+
+    .mobile-menu, .mobile-menu-exit {
+        display: none; /* Hides the Mobile menu on 768px or larger */
+    }
+
+    .navbar .container {
+        display: grid; /* have two columns */
+        grid-template-columns: 180px auto; /* 180px is for the logo, auto for everything else */
+        justify-content: unset;
+    }
+
+    .navbar nav {
+        display: flex;
+        justify-content: space-between;
+        background: none;
+        position: unset;
+        height: auto;
+        width: 100%;
+        padding: 0;
+
+        ul {
+            display: flex; /* the nav links are an unordered list */
+        }
+
+        a {
+            color: black; /* Turns the white Nav-link black*/
+            font-size: 1em;
+            padding: .1em 1em;
+        }
+
+        ul.primary-nav {
+            margin: 0; /* This puts nav-links on same line */
+        }
+
+        li.current a {
+            font-weight: bold; /* For the nav-links. larger than 768px */
+        }
+        li.go-premium-cta a {
+            color: var(--primary-color); /* so it will match the "Try for Free" button */
+            border: 3px solid var(--primary-color);
+            font-weight: bold;
+            border-radius: 5em;
+            margin-top: -.2em;
+
+            &:hover {
+                background: var(--primary-color); /* For the "Go Premium button" */
+                color: white;
+            }
+        }
+    }
+}
+
+/* For larger screens, 1080px and up */
+@media only screen and (min-width: 1080px) {
+    .container {
+        width: 1080px;
+        margin: 0 auto; /* the "auto" will center everything */
+    }
+
+    section {
+        padding: 10em 4em;
+    }
+
+    .hero .container { /* the header content */
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+
+        .left-col { /* This has the blue "Tyr for Free" button */
+            margin: 3em 3em 0 5em; /* top, right, bottom, left */
+
+            h1 {
+                font-size: 3em;
+                width: 90%;
+            }
+        }
+    }
+
+    .hero-img { /* white square with rounded corners */
+        width: 30%; /* makes img a little smaller */
+        margin-right: 8em;
+    }
+
+    .hero-cta {
+        display: flex; /* the watch video link */
+    }
+    .primary-cta { /* the blue "Try for Free" button */
+        margin-right: 1em;
+    }
+
+    ul.features-list { /* has green check marks */
+        display: block;
+        margin-left: 5em;
+        /* nested items */
+        li {
+            font-size: 1.4em;
+
+            &:before {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    .features-section { /* to set up the spacing for the image */
+        position: relative;
+    }
+
+    .features-section img { /* guy holding phone */
+        display: block; /* Saying "block" will display the image */
+        position: absolute;
+        right: 0; /* Pushes image to the right */
+        width: 350px;
+        bottom: -2em; /* so it drops a little below the section */
+    }
+
+    .testimonials-section ul { /* blue background */
+        display: flex; /* so the float next to each other */
+        
+        li {
+            margin: 0 1em;
+        }
+    }
+
+    .contact-section {
+        position: relative;
+
+        .container {
+            display: flex; 
+        }
+    }
+
+    .contact-right { /* required to keep the Iframe to the right side */
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45%;
+        height: 100%;
+
+        iframe {
+            height: 100%;
+        }
+    }
+}
+
+/* Very large screens */
+@media only screen and (min-width: 1450px) {
+    .features-section { /* blue rectangle with square of dots */
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 10%;
+            height: 20em;
+            background: var(--primary-color);
+            left: 0;
+            top: -4em;
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 20em;
+            background: url('../images/dots.svg') no-repeat;
+            left: 4.5em;
+            top: 2em;
+        }
+    }
+}
